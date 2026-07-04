@@ -1343,6 +1343,7 @@ export async function runEmbeddedAttempt(
             agentAccountId: params.agentAccountId,
             messageTo: params.messageTo,
             messageThreadId: params.messageThreadId,
+            nativeChannelId: params.chatId,
             groupId: params.groupId,
             groupChannel: params.groupChannel,
             groupSpace: params.groupSpace,

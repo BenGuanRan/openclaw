@@ -6953,6 +6953,7 @@ public struct CronJob: Codable, Sendable {
     public let createdatms: Int
     public let updatedatms: Int
     public let schedule: AnyCodable
+    public let trigger: [String: AnyCodable]?
     public let sessiontarget: AnyCodable
     public let wakemode: AnyCodable
     public let payload: AnyCodable
@@ -6984,6 +6985,7 @@ public struct CronJob: Codable, Sendable {
         createdatms: Int,
         updatedatms: Int,
         schedule: AnyCodable,
+        trigger: [String: AnyCodable]?,
         sessiontarget: AnyCodable,
         wakemode: AnyCodable,
         payload: AnyCodable,
@@ -7014,6 +7016,7 @@ public struct CronJob: Codable, Sendable {
         self.createdatms = createdatms
         self.updatedatms = updatedatms
         self.schedule = schedule
+        self.trigger = trigger
         self.sessiontarget = sessiontarget
         self.wakemode = wakemode
         self.payload = payload
@@ -7046,6 +7049,7 @@ public struct CronJob: Codable, Sendable {
         case createdatms = "createdAtMs"
         case updatedatms = "updatedAtMs"
         case schedule
+        case trigger
         case sessiontarget = "sessionTarget"
         case wakemode = "wakeMode"
         case payload
@@ -7132,6 +7136,7 @@ public struct CronAddParams: Codable, Sendable {
     public let enabled: Bool?
     public let deleteafterrun: Bool?
     public let schedule: AnyCodable
+    public let trigger: [String: AnyCodable]?
     public let sessiontarget: AnyCodable
     public let wakemode: AnyCodable
     public let payload: AnyCodable
@@ -7149,6 +7154,7 @@ public struct CronAddParams: Codable, Sendable {
         enabled: Bool?,
         deleteafterrun: Bool?,
         schedule: AnyCodable,
+        trigger: [String: AnyCodable]?,
         sessiontarget: AnyCodable,
         wakemode: AnyCodable,
         payload: AnyCodable,
@@ -7165,6 +7171,7 @@ public struct CronAddParams: Codable, Sendable {
         self.enabled = enabled
         self.deleteafterrun = deleteafterrun
         self.schedule = schedule
+        self.trigger = trigger
         self.sessiontarget = sessiontarget
         self.wakemode = wakemode
         self.payload = payload
@@ -7183,6 +7190,7 @@ public struct CronAddParams: Codable, Sendable {
         case enabled
         case deleteafterrun = "deleteAfterRun"
         case schedule
+        case trigger
         case sessiontarget = "sessionTarget"
         case wakemode = "wakeMode"
         case payload
@@ -7290,6 +7298,7 @@ public struct CronRunLogEntry: Codable, Sendable {
     public let runatms: Int?
     public let durationms: Int?
     public let nextrunatms: Int?
+    public let triggerfired: Bool?
     public let model: String?
     public let provider: String?
     public let usage: [String: AnyCodable]?
@@ -7314,6 +7323,7 @@ public struct CronRunLogEntry: Codable, Sendable {
         runatms: Int?,
         durationms: Int?,
         nextrunatms: Int?,
+        triggerfired: Bool?,
         model: String?,
         provider: String?,
         usage: [String: AnyCodable]?,
@@ -7337,6 +7347,7 @@ public struct CronRunLogEntry: Codable, Sendable {
         self.runatms = runatms
         self.durationms = durationms
         self.nextrunatms = nextrunatms
+        self.triggerfired = triggerfired
         self.model = model
         self.provider = provider
         self.usage = usage
@@ -7362,6 +7373,7 @@ public struct CronRunLogEntry: Codable, Sendable {
         case runatms = "runAtMs"
         case durationms = "durationMs"
         case nextrunatms = "nextRunAtMs"
+        case triggerfired = "triggerFired"
         case model
         case provider
         case usage
